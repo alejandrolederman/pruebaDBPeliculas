@@ -1,6 +1,6 @@
 module.exports = function (sequelize, dataTypes) {
 
-    let alias = "Pelicula";
+    let alias = "movies";
 
     let cols = {
 
@@ -36,7 +36,7 @@ module.exports = function (sequelize, dataTypes) {
     }
 
     let config = {
-        tabletName: "movie",
+        tabletName: "movies",
         timestamps: false
     }
 
@@ -45,8 +45,8 @@ let Pelicula = sequelize.define(alias, cols, config);
 
 Pelicula.associate = function(models){
 
-    Pelicula.belongsTo(models.Genero, {
-        as: "genero",
+    Pelicula.belongsTo(models.genres, {
+        as: "Genero",
         foreignKey: "genre_id"
     });
 
